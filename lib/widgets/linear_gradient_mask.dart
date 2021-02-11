@@ -5,12 +5,14 @@ import 'package:flutter_tripity/constants.dart';
 class LinearGradientMask extends StatelessWidget {
   final Alignment begin;
   final Alignment end;
+  final List<Color> colors;
   final Widget child;
 
   const LinearGradientMask({
     @required this.child,
     this.begin = Alignment.topLeft,
     this.end = Alignment.bottomRight,
+    this.colors = kNavigationBarSelectedGradient,
   });
 
   @override
@@ -19,7 +21,7 @@ class LinearGradientMask extends StatelessWidget {
       shaderCallback: (bounds) => LinearGradient(
         begin: begin,
         end: end,
-        colors: kNavigationBarSelectedGradient,
+        colors: colors,
         tileMode: TileMode.clamp,
       ).createShader(bounds),
       child: child,

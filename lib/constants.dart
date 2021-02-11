@@ -8,9 +8,9 @@ const Color kWhite = Color(0xFFFFFFFF);
 const Color kGrey = Color(0xFFF4F5F7);
 const Color kBlack = Color(0xFF2D3243);
 
-const Color kNavigationBarColor = Color(0xFF000E26);
+const Color kDarkestBlue = Color(0xFF000E26);
 const List<Color> kNavigationBarSelectedGradient = [Color(0xFF002B80), Color(0xFF40EAFF)];
-const List<Color> kNavigationBarSelectedGlow = [Color(0xAA40EAFF), Color(0x0040EAFF)];
+const List<Color> kNavigationBarSelectedGlow = [Color(0x8840EAFF), Color(0x0040EAFF)];
 
 // Padding
 const double kPaddingS = 8.0;

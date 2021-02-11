@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_tripity/constants.dart';
-import 'package:flutter_tripity/widgets/Logo.dart';
+import 'package:flutter_tripity/widgets/logo.dart';
 
 class Header extends StatelessWidget {
   final VoidCallback onSkip;
@@ -16,16 +16,12 @@ class Header extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        Logo(
-          color: kWhite,
-          size: 32.0,
-        ),
+        Logo(size: 32.0),
         GestureDetector(
           onTap: onSkip,
           child: Text(
             'Skip',
-            style:
-                Theme.of(context).textTheme.subtitle1.copyWith(color: kWhite),
+            style: Theme.of(context).textTheme.subtitle1.copyWith(color: kWhite),
           ),
         ),
       ],

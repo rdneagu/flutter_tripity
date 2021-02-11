@@ -43,12 +43,14 @@ class CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       );
       items.add(item);
     }
-    return Container(
-      decoration: BoxDecoration(
-        color: kNavigationBarColor,
-        borderRadius: BorderRadius.only(topRight: Radius.circular(30), topLeft: Radius.circular(30)),
+    return ClipRRect(
+      borderRadius: BorderRadius.only(topRight: Radius.circular(50), topLeft: Radius.circular(50)),
+      child: Container(
+        decoration: BoxDecoration(
+          color: kDarkestBlue,
+        ),
+        child: Row(mainAxisAlignment: MainAxisAlignment.center, children: items),
       ),
-      child: Row(mainAxisAlignment: MainAxisAlignment.center, children: items),
     );
   }
 

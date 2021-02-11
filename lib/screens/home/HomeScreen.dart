@@ -32,7 +32,9 @@ class _HomeState extends State<HomeScreen> with SingleTickerProviderStateMixin {
 
   void _updateTabIndex(i) {
     setState(() {
-      _currentTabIndex = i;
+      if (_currentTabIndex != i) {
+        _currentTabIndex = i;
+      }
     });
   }
 
@@ -46,26 +48,28 @@ class _HomeState extends State<HomeScreen> with SingleTickerProviderStateMixin {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Container(
-                  height: 60.0,
-                  decoration: BoxDecoration(
-                    color: kNavigationBarColor,
-                    borderRadius: BorderRadius.only(bottomRight: Radius.circular(30), bottomLeft: Radius.circular(30)),
-                  ),
-                  child: Row(children: <Widget>[
-                    Expanded(
-                      child: Center(
-                        child: LinearGradientMask(
-                          child: Text(
-                            _tabItems[_currentTabIndex]["label"],
-                            style: TextStyle(color: kNavigationBarSelectedGradient[1], fontWeight: FontWeight.w600, fontSize: 20.0),
+                ClipRRect(
+                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(50), bottomLeft: Radius.circular(50)),
+                  child: Container(
+                    height: 60.0,
+                    decoration: BoxDecoration(
+                      color: kDarkestBlue,
+                    ),
+                    child: Row(children: <Widget>[
+                      Expanded(
+                        child: Center(
+                          child: LinearGradientMask(
+                            child: Text(
+                              _tabItems[_currentTabIndex]["label"],
+                              style: TextStyle(color: kNavigationBarSelectedGradient[1], fontWeight: FontWeight.w600, fontSize: 20.0),
+                            ),
+                            begin: Alignment(0.0, -3.0),
+                            end: Alignment.bottomCenter,
                           ),
-                          begin: Alignment(0.0, -3),
-                          end: Alignment.bottomCenter,
                         ),
                       ),
-                    )
-                  ]),
+                    ]),
+                  ),
                 ),
                 Expanded(
                   child: Column(

@@ -215,31 +215,47 @@ class _OnboardingState extends State<OnboardingScreen> with TickerProviderStateM
       body: Stack(
         children: <Widget>[
           SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(kPaddingL),
-              child: Column(
-                children: <Widget>[
-                  Header(
-                    onSkip: () async => await _goToLogin(),
+            child: Column(
+              children: <Widget>[
+                Container(
+                  height: 60.0,
+                  decoration: BoxDecoration(
+                    color: kDarkestBlue,
+                    borderRadius: BorderRadius.only(bottomRight: Radius.circular(50), bottomLeft: Radius.circular(50)),
                   ),
-                  Expanded(
-                    child: _getPage(),
-                  ),
-                  AnimatedBuilder(
-                    animation: _pageIndicatorAnimation,
-                    child: NextPageButton(
-                      onPressed: () async => await _nextPage(),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: kPaddingL),
+                    child: Header(
+                      onSkip: () async => await _goToLogin(),
                     ),
-                    builder: (_, Widget child) {
-                      return OnboardingPageIndicator(
-                        angle: _pageIndicatorAnimation.value,
-                        currentPage: _currentPage,
-                        child: child,
-                      );
-                    },
                   ),
-                ],
-              ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(kPaddingL),
+                    child: Column(
+                      children: <Widget>[
+                        Expanded(
+                          child: _getPage(),
+                        ),
+                        AnimatedBuilder(
+                          animation: _pageIndicatorAnimation,
+                          child: NextPageButton(
+                            onPressed: () async => await _nextPage(),
+                          ),
+                          builder: (_, Widget child) {
+                            return OnboardingPageIndicator(
+                              angle: _pageIndicatorAnimation.value,
+                              currentPage: _currentPage,
+                              child: child,
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           AnimatedBuilder(

@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_tripity/constants.dart';
-import 'package:flutter_tripity/widgets/Logo.dart';
+import 'package:flutter_tripity/widgets/logo.dart';
 import 'package:flutter_tripity/screens/authentication/widgets/FadeSlideTransition.dart';
 
 class Header extends StatelessWidget {
@@ -19,10 +19,7 @@ class Header extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Logo(
-            color: kBlue,
-            size: 48.0,
-          ),
+          Logo(size: 48.0),
           const SizedBox(height: kSpaceM),
           FadeSlideTransition(
             animation: animation,

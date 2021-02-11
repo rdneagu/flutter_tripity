@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_tripity/constants.dart';
 import 'package:flutter_tripity/screens/authentication/widgets/clippers/index.dart';
-import 'package:flutter_tripity/screens/authentication/widgets/Header.dart';
-import 'package:flutter_tripity/screens/authentication/widgets/LoginForm.dart';
+import 'package:flutter_tripity/screens/authentication/widgets/header.dart';
+import 'package:flutter_tripity/screens/authentication/widgets/login_form.dart';
+import 'package:flutter_tripity/widgets/gradient_button.dart';
 
 class AuthenticationScreen extends StatefulWidget {
   final double screenHeight;
@@ -20,9 +21,8 @@ class AuthenticationScreen extends StatefulWidget {
 class _AuthenticationState extends State<AuthenticationScreen> with SingleTickerProviderStateMixin {
   AnimationController _animationController;
   Animation<double> _headerTextAnimation;
-  Animation<double> _whiteTopClipperAnimation;
-  Animation<double> _blueTopClipperAnimation;
-  Animation<double> _greyTopClipperAnimation;
+  Animation<double> _blueClipperAnimation;
+  Animation<double> _darkBlueClipperAnimation;
   Animation<double> _formElementAnimation;
 
   @override
@@ -44,15 +44,11 @@ class _AuthenticationState extends State<AuthenticationScreen> with SingleTicker
     ));
 
     var clipperOffsetTween = Tween<double>(begin: widget.screenHeight, end: 0.0);
-    _whiteTopClipperAnimation = clipperOffsetTween.animate(CurvedAnimation(
+    _blueClipperAnimation = clipperOffsetTween.animate(CurvedAnimation(
       parent: _animationController,
       curve: Interval(0.5, 0.7, curve: Curves.easeInOut),
     ));
-    _greyTopClipperAnimation = clipperOffsetTween.animate(CurvedAnimation(
-      parent: _animationController,
-      curve: Interval(0.35, 0.7, curve: Curves.easeInOut),
-    ));
-    _blueTopClipperAnimation = clipperOffsetTween.animate(CurvedAnimation(
+    _darkBlueClipperAnimation = clipperOffsetTween.animate(CurvedAnimation(
       parent: _animationController,
       curve: Interval(0.2, 0.7, curve: Curves.easeInOut),
     ));
@@ -74,45 +70,34 @@ class _AuthenticationState extends State<AuthenticationScreen> with SingleTicker
       body: Stack(
         children: <Widget>[
           AnimatedBuilder(
-            animation: _whiteTopClipperAnimation,
-            child: Container(color: kLightBlue),
-            builder: (_, Widget child) {
-              return ClipPath(
-                clipper: WhiteTopClipper(yOffset: _whiteTopClipperAnimation.value),
-                child: child,
-              );
-            },
-          ),
-          AnimatedBuilder(
-            animation: _greyTopClipperAnimation,
+            animation: _blueClipperAnimation,
             child: Container(color: kBlue),
             builder: (_, Widget child) {
               return ClipPath(
-                clipper: GreyTopClipper(yOffset: _greyTopClipperAnimation.value),
+                clipper: BlueClipper(yOffset: _blueClipperAnimation.value),
                 child: child,
               );
             },
           ),
           AnimatedBuilder(
-            animation: _blueTopClipperAnimation,
-            child: Container(color: kWhite),
+            animation: _darkBlueClipperAnimation,
+            child: Container(color: kDarkestBlue),
             builder: (_, Widget child) {
               return ClipPath(
-                clipper: BlueTopClipper(yOffset: _blueTopClipperAnimation.value),
+                clipper: DarkBlueClipper(yOffset: _darkBlueClipperAnimation.value),
                 child: child,
               );
             },
           ),
           SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: kPaddingL),
-              child: Column(
-                children: <Widget>[
-                  Header(animation: _headerTextAnimation),
-                  SizedBox(height: 200),
-                  LoginForm(context: context, animation: _formElementAnimation),
-                ],
-              ),
+            child: Column(
+              children: <Widget>[
+                Header(animation: _headerTextAnimation),
+                SizedBox(height: 70),
+                Expanded(
+                  child: LoginForm(context: context, animation: _formElementAnimation),
+                ),
+              ],
             ),
           ),
         ],

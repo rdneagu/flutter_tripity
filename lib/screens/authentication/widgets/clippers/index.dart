@@ -1,3 +1,2 @@
-export 'BlueTopClipper.dart';
-export 'GreyTopClipper.dart';
-export 'WhiteTopClipper.dart';
+export 'dark_blue_clipper.dart';
+export 'blue_clipper.dart';

@@ -15,7 +15,7 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: kPaddingL),
+      padding: const EdgeInsets.all(kPaddingL),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -25,8 +25,8 @@ class Header extends StatelessWidget {
             animation: animation,
             additionalOffset: 0.0,
             child: Text(
-              'Welcome to Bubble',
-              style: Theme.of(context).textTheme.headline5.copyWith(color: kBlack, fontWeight: FontWeight.bold),
+              'Welcome to Tripity',
+              style: Theme.of(context).textTheme.headline5.copyWith(color: kWhite, fontWeight: FontWeight.bold),
             ),
           ),
           const SizedBox(height: kSpaceS),
@@ -34,8 +34,8 @@ class Header extends StatelessWidget {
             animation: animation,
             additionalOffset: 16.0,
             child: Text(
-              'Est ad dolor aute ex commodo tempor exercitation proident.',
-              style: Theme.of(context).textTheme.subtitle1.copyWith(color: kBlack.withOpacity(0.5)),
+              'Join us and start tracking your trips',
+              style: Theme.of(context).textTheme.subtitle1.copyWith(color: kWhite.withOpacity(0.6)),
             ),
           ),
         ],

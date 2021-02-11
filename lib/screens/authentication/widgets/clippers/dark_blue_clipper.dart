@@ -1,22 +1,22 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class GreyTopClipper extends CustomClipper<Path> {
+class DarkBlueClipper extends CustomClipper<Path> {
   final double yOffset;
 
-  const GreyTopClipper({
+  const DarkBlueClipper({
     @required this.yOffset,
   }) : assert(yOffset != null);
 
   @override
   Path getClip(Size size) {
     var path = Path()
-      ..lineTo(0.0, 265.0 + yOffset)
+      ..lineTo(0.0, 200.0 + yOffset)
       ..quadraticBezierTo(
-        size.width / 2,
-        285.0 + yOffset,
+        size.width / 2.2,
+        240.0 + yOffset,
         size.width,
-        185.0 + yOffset,
+        160.0 + yOffset,
       )
       ..lineTo(size.width, 0.0)
       ..close();

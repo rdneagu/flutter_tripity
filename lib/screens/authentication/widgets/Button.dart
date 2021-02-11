@@ -29,11 +29,7 @@ class Button extends StatelessWidget {
         minWidth: double.infinity,
       ),
       child: image != null
-          ? OutlineButton(
-              color: color,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4.0),
-              ),
+          ? OutlinedButton(
               child: Row(
                 children: <Widget>[
                   Padding(

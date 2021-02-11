@@ -14,6 +14,7 @@ import 'package:flutter_tripity/screens/onboarding/widgets/Header.dart';
 import 'package:flutter_tripity/screens/onboarding/widgets/NextPageButton.dart';
 import 'package:flutter_tripity/screens/onboarding/widgets/OnboardingPageIndicator.dart';
 import 'package:flutter_tripity/screens/onboarding/widgets/Ripple.dart';
+import 'package:flutter_tripity/widgets/gradient_button.dart';
 
 class OnboardingScreen extends StatefulWidget {
   final double screenHeight;

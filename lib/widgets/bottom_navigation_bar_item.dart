@@ -32,7 +32,7 @@ class CustomBottomNavigationBarItem extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: RadialGradient(
             center: Alignment(0.0, -1.5),
-            radius: 0.6,
+            radius: 0.5,
             colors: kNavigationBarSelectedGlow,
           ),
         ),

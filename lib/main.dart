@@ -49,6 +49,7 @@ class _App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Tripity',
+      theme: ThemeData(fontFamily: 'Nunito'),
       home: App(),
     );
   }
